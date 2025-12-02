@@ -1,8 +1,7 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:tiktok_tutorial/constants.dart';
 import 'package:tiktok_tutorial/views/widgets/text_input_field.dart';
+
 
 class SingupScreen extends StatelessWidget {
   SingupScreen({super.key});
@@ -38,7 +37,6 @@ class SingupScreen extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          
           Stack(
             children: [
               const CircleAvatar(

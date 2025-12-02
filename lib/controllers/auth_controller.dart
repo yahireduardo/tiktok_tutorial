@@ -25,9 +25,6 @@ class AuthController extends GetxController {
     }
     _pickedImage = Rx<File?>(File(pickedImage!.path));
   }
-
-
-
   //upload to firebase storage
   Future<String> _uploadToStorage(File image) async {
     Reference ref = firebaseStorage
@@ -40,7 +37,6 @@ class AuthController extends GetxController {
     String downloadUrl = await snap.ref.getDownloadURL();
     return downloadUrl;
   }
-
   // registering the user
   void registerUser(
       String username, String email, String password, File? image) async {
@@ -61,7 +57,10 @@ class AuthController extends GetxController {
           email: email,
           uid: cred.user!.uid,
         );
-        await firestore.collection('users').doc(cred.user!.uid).set(user.toJson());
+        await firestore
+        .collection('users')
+        .doc(cred.user!.uid)
+        .set(user.toJson());
       } else {
         Get.snackbar(
           "Error Creating Account",
@@ -74,14 +73,26 @@ class AuthController extends GetxController {
       e.toString(),
       );
     }
+  }
   void loginUser(String email, String password) async {
-    try {email.isNotEmpty &&
-      password.isNotEmpty)
+    try {
+      if (email.isNotEmpty && password.isNotEmpty) {
+        await firebaseAuth.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        print ('log success');
+      } else {
+        Get.snackbar(
+          "Error Logging In",
+          "Please enter all the fields",
+        );
+      }
     } catch (e) {
       Get.snackbar(
         "Error Logging In",
         e.toString(),
       );
-  }
+    }
   }
 }
