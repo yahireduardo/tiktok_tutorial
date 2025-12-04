@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_tutorial/constants.dart';
+import 'package:tiktok_tutorial/views/screens/auth/login_screen.dart';
 import 'package:tiktok_tutorial/views/widgets/text_input_field.dart';
 
 
@@ -136,9 +137,11 @@ class SingupScreen extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {
-                  print('navigating user');
-                },
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ),
+                ),
                 child: Text(
                   'Login',
                   style: TextStyle(fontSize: 20, color: buttonColor),
