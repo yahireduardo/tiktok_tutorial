@@ -1,3 +1,6 @@
+import 'dart:core';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Video {
   String username;
@@ -26,7 +29,7 @@ class Video {
     required this.thumbnail,
   });
 
-  Map>String, dynamic> Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
       "username": username,
       "uid": uid,
       "profilePhoto": profilePhoto,

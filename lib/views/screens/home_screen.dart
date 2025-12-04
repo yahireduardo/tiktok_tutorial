@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_tutorial/constants.dart';
 import 'package:tiktok_tutorial/views/widgets/custom_icon.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   int pageIdx = 0;
 
   @override
@@ -19,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: backgroundColor,
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
-          currentIndex: pageIdx,
+        currentIndex: pageIdx,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home, size: 30),
@@ -41,7 +47,8 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.person, size: 30),
             label: 'Profile',
           ),
-      ],)
+        ],
+      ),
       body: pages[pageIdx],
     );
   }

@@ -11,6 +11,7 @@ class AddVideoScreen extends StatelessWidget {
   Future<void> pickVideo(ImageSource src, BuildContext context) async {
     final video = await ImagePicker().pickVideo(source: src);
     if(video!=null){
+      // ignore: use_build_context_synchronously
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => ConfirmScreen(

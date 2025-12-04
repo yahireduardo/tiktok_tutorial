@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 
 class CircleAnimation extends StatefulWidget {
   final Widget child;
-  const CircleAnimation({super.key, required this.child,});
+  const CircleAnimation({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
-  _CircleAnimationState createState() => CircleAnimationState();
+  _CircleAnimationState createState() => _CircleAnimationState();
 }
 
 class _CircleAnimationState extends State<CircleAnimation>
-    with SingleTickerProviderStateMixin{
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
 
   @override
