@@ -12,7 +12,7 @@ class VideoScreen extends StatelessWidget {
 
   final VideoController  videoController = Get.put(VideoController());
 
-  buildProfile(String profilePhoto) {
+  SizedBox buildProfile(String profilePhoto) {
     return SizedBox(
       width: 50,
       height: 60,
@@ -40,7 +40,7 @@ class VideoScreen extends StatelessWidget {
     );
   }
 
-  buildMusicAlbum(String profilePhoto) {
+  SizedBox buildMusicAlbum(String profilePhoto) {
     return SizedBox(
       width: 60,
       height: 60,
@@ -182,7 +182,9 @@ class VideoScreen extends StatelessWidget {
                                       InkWell(
                                         onTap: () => Navigator.of(context).push(
                                           MaterialPageRoute(
-                                            builder: (context) => CommentScreen(),
+                                            builder: (context) => CommentScreen(
+                                              id: data.id,
+                                            ),
                                           ),
                                         ),
                                         child: const Icon(
